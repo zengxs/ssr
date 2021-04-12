@@ -1,4 +1,4 @@
-module github/zengxs/ssr
+module github.com/zengxs/ssr
 
 go 1.16
 
