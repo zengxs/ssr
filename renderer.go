@@ -1,10 +1,10 @@
 package ssr
 
 import (
-	`html/template`
-	`net/http`
-	`runtime`
-	`time`
+	"html/template"
+	"net/http"
+	"runtime"
+	"time"
 )
 
 // Renderer implement http.Handler
@@ -40,5 +40,6 @@ func (r *Renderer) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		r.pool.Drop(je)
 	}
 
-	_ = r.tmpl.Execute(w, res)
+	// TODO: if res is nil
+	_ = r.tmpl.Execute(w, res.toHtmlSafeMap())
 }
